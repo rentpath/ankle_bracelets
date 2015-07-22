@@ -35,6 +35,8 @@ gem 'puma'
 
 gem 'rails_12factor', group: :production
 
+gem 'sentry-raven', :git => 'https://github.com/getsentry/raven-ruby.git'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
