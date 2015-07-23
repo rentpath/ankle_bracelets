@@ -1,22 +1,14 @@
-<h1>Listing Organizations</h1>
+<% if @organizations.present? %>
+  <% if current_user.first_name.blank? %>
+    <h1>Your Organizations</h1>
+  <% else %>
+    <h1> <%= current_user.first_name.possessive %> Organizations</h1>
+  <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address1</th>
-      <th>Address2</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Phone number</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @organizations.each do |organization| %>
+  <table>
+    <thead>
       <tr>
+<<<<<<< Updated upstream
         <td><%= organization.name %></td>
         <td><%= organization.address1 %></td>
         <td><%= organization.address2 %></td>
@@ -28,11 +20,40 @@
         <td><%= link_to 'Show', my_organization_path(organization) %></td>
         <td><%= link_to 'Edit', edit_my_organization_path(organization) %></td>
         <td><%= link_to 'Destroy', my_organization_path(organization), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+=======
+        <th>Name</th>
+        <th>Address1</th>
+        <th>Address2</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th>Phone number</th>
+        <th colspan="3"></th>
+>>>>>>> Stashed changes
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @organizations.each do |organization| %>
+        <tr>
+          <td><%= organization.name %></td>
+          <td><%= organization.address1 %></td>
+          <td><%= organization.address2 %></td>
+          <td><%= organization.city %></td>
+          <td><%= organization.state %></td>
+          <td><%= organization.zip %></td>
+          <td><%= organization.phone_number %></td>
+          <td><%= link_to 'Show', my_organization_path(organization) %></td>
+          <td><%= link_to 'Edit', edit_my_organization_path(organization) %></td>
+          <td><%= link_to 'Destroy', my_organization_path(organization), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+  <br>
+
+<% else %>
+  <h4> You do not have any organizations yet. </h4>
+<% end %>
 <%= link_to 'New Organization', new_my_organization_path %>
