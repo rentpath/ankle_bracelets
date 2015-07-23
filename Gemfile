@@ -23,7 +23,7 @@ gem 'devise', '~> 3.2'
 gem 'twilio-ruby', '~> 4.2'
 
 group :production do
-  gem 'rails_12factor', group: :production
+  gem 'rails_12factor'
   gem 'sentry-raven', :git => 'https://github.com/getsentry/raven-ruby.git'
 end
 
