@@ -2,7 +2,7 @@
   <% if current_user.first_name.blank? %>
     <h1>Your Organizations</h1>
   <% else %>
-    <h1> <%= current_user.first_name.possessive %> Organizations</h1>
+    <h1> <%= possessive(current_user.first_name) %> Organizations</h1>
   <% end %>
 
   <table>
