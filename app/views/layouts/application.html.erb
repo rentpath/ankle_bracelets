@@ -3,22 +3,43 @@
 <head>
   <title>AnkleBracelets</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<%
+ no_iframe = controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'
+%>
 
-  <% if user_signed_in? %>
-    <%= link_to current_user.email, my_organizations_path %>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-  <% else %>
-    <%= link_to('Login', new_user_session_path)  %>  
-  <% end %>
+<% if no_iframe %>
+  <body class="show-bg">
+<% else %>
+  <body>
+<% end %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<%- if no_iframe %>
+  <nav>
+    <%= link_to 'View All Organizations', organizations_path %>
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, my_organizations_path %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <% else %>
+    <!--
+      <%= link_to('Login', new_user_session_path)  %>  
+    -->
+    <% end %>    
+  </nav>
+<% end -%>
+
+
+
+<p class="custom notice"><%= notice %></p>
+<p class="custom alert"><%= alert %></p>
 
 <%= yield %>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 </html>

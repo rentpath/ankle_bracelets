@@ -13,3 +13,99 @@
  *= require_tree .
  *= require_self
  */
+
+
+body { 
+  margin: 0;
+  padding: 0;
+}
+
+body.show-bg {
+  background-image: url('/assets/main-volunteer-bg.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -110px;
+}
+
+iframe.modal-iframe {
+  border: none;
+  height: 380px;
+}
+
+a:link, a:link {}
+
+nav {
+  text-align: right;  
+  margin: 10px;
+}
+
+nav a {
+  display: inline-block;
+  border-right: 1px solid #fff; 
+  padding-right: 10px;
+  margin-right: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav a:last-child {
+  border: none;
+}
+
+nav a:hover, 
+nav a:visited {
+  color: #fff;
+  background-color: transparent;
+}
+
+.img-circle { 
+  border-radius:50%; 
+  width: 200px; 
+  border: 2px solid #999;  
+}
+
+button { 
+  background-image: linear-gradient(to bottom,#fef3cc,#fbdb64); 
+  border-color: #ebd97e; 
+  background-color: #fef3cc; 
+  border-radius: 6px;
+  font-weight:bold; 
+  font-size: 20px; 
+  padding:10px 20px;
+  margin: 0; 
+  display: block; 
+  color: #444;
+  outline: none;
+}
+
+.log-in-btn {
+  position: absolute; 
+  top: 50%;
+  left:50%;
+  margin-top: -38px;
+  margin-left: -38px;
+  font-weight: bold; 
+}
+
+.small-text { font-size:10px; color: #666; }
+.modal .col { float: left; width: 45%; }
+.modal .col:first-child { border-right: 1px solid #ccc; margin-right:20px; }
+.modal .login-form { padding-top:50px; }
+.modal-body, 
+.modal-header { 
+  overflow: hidden; 
+}
+.modal-header .btn { float: right; }
+
+.custom.alert, 
+.custom.notice {
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+.custom.alert {
+  color: red;
+  font-weight: bold;
+}
