@@ -5,7 +5,8 @@ class VolunteersController < ApplicationController
 
   def create
     @shift.users << current_user unless @shift.users.include? current_user
-    redirect_to event_path(@event), notice: 'Thank you for signing up!'
+    Message.send(user.phone_number, 'Thank you for signing up! Text back with CANCEL if your plans change.') if user.phone_number
+    redirect_to event_path(@event), notice: 'Thank you for signing up! If your plans change, be sure to come back and tell us.'
   end
 
   def destroy
