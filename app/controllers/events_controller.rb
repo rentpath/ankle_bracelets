@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: :volunteer
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :volunteer]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
