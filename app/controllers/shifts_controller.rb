@@ -18,6 +18,10 @@ class ShiftsController < ApplicationController
     end
   end
 
+  def show
+    @shift = Shift.find(params[:id])
+  end
+
   private
 
   def set_organization

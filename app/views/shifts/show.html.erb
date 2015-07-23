@@ -1,0 +1,28 @@
+<p>
+  <h1><%= @shift.title %></h1>
+</p>
+
+<p>
+  <%= @shift.start_time %> - <%= @shift.end_time %>
+</p>
+
+<p>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">Volunteer</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @shift.users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+</p>

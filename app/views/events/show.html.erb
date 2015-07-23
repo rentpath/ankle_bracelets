@@ -49,7 +49,7 @@
     <% @event.shifts.each do |shift| %>
       <tr>
         <td>
-          <%= shift.title %>
+          <%= link_to shift.title, my_organization_my_organization_event_shift_path(@event.organization, @event, shift) %>
         </td>
         <td>
           <%= shift.start_time %>
