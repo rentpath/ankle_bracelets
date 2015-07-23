@@ -33,5 +33,13 @@
   <%= @organization.phone_number %>
 </p>
 
+<div>
+  <h2>Events</h2>
+  <% @organization.events.each do |event| %>
+    <%= link_to event.name, my_organization_my_organization_event_path(@organization, event) %>
+  <% end %>
+  <%= link_to 'Create Event', new_my_organization_my_organization_event_path(@organization) %>
+</div>
+
 <%= link_to 'Edit', edit_my_organization_path(@organization) %> |
 <%= link_to 'Back', my_organizations_path %>
