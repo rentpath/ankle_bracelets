@@ -25,9 +25,7 @@
       <%= link_to current_user.email, my_organizations_path %>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
     <% else %>
-    <!--
-      <%= link_to('Login', new_user_session_path)  %>  
-    -->
+      <a href="javascript:void(0)" data-toggle="modal" data-target="#login-modal">Login</a>
     <% end %>    
   </nav>
 <% end -%>
@@ -43,6 +41,32 @@
 
 <div class="<% if controller_name != 'home' %>page-container<% end %>">
   <%= yield %>
+</div>
+
+<div id="login-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title"></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal"> X </button>
+      </div>
+      <div class="modal-body">
+        <div class="col login-images">
+          <img class="img-circle" src="/assets/habitat-humanity-250.jpg">
+          <img class="img-circle" src="/assets/red-cross-250.jpg">
+          <img class="img-circle" src="/assets/trash-pick-up-250.jpg">          
+        </div>
+        <div class="col login-form">
+
+          <iframe src="<%=new_user_session_path%>" class="modal-iframe"></iframe>
+ 
+        </div>
+      </div>
+      <div class="modal-footer">
+<!--           <button type="button" class="btn btn-primary">Log In</button>          
+-->        </div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

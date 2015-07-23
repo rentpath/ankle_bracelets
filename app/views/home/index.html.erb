@@ -3,38 +3,5 @@
     <button type="button" class="log-in-btn" data-toggle="modal" data-target="#login-modal">Log In</button>
   <% end %>
 
-  <%
-   no_iframe = controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'
-  %>
-
-  <% if no_iframe %>
-  <div id="login-modal" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-title"></div>
-          <button type="button" class="btn btn-default" data-dismiss="modal"> X </button>
-        </div>
-        <div class="modal-body">
-          <div class="col login-images">
-            <img class="img-circle" src="/assets/habitat-humanity-250.jpg">
-            <img class="img-circle" src="/assets/red-cross-250.jpg">
-            <img class="img-circle" src="/assets/trash-pick-up-250.jpg">          
-          </div>
-          <div class="col login-form">
-
-            <iframe src="<%=new_user_session_path%>" class="modal-iframe"></iframe>
-   
-          </div>
-        </div>
-        <div class="modal-footer">
-<!--           <button type="button" class="btn btn-primary">Log In</button>          
- -->        </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
-
 
 

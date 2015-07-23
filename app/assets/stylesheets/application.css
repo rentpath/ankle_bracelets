@@ -59,8 +59,10 @@ nav a:last-child {
   border: none;
 }
 
+nav a:link,
+nav a:visited,
 nav a:hover, 
-nav a:visited {
+nav a:active {
   color: #fff;
   background-color: transparent;
 }
