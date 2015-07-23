@@ -13,35 +13,7 @@
   <%= @event.name %>
 </p>
 
-<p>
-  <strong>Address1:</strong>
-  <%= @event.address1 %>
-</p>
-
-<p>
-  <strong>Address2:</strong>
-  <%= @event.address2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @event.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @event.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @event.zip %>
-</p>
-
-<p>
-  <strong>Organization:</strong>
-  <%= @event.organization %>
-</p>
+<%= render partial: 'address', locals: { addressable: @event } %>
 
 <div>
   <h2>Shifts</h2>

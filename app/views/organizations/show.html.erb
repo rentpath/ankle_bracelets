@@ -2,12 +2,7 @@
   <h1><%= @organization.name %></h1>
 </p>
 
-<p class='address'>
-  <%= full_address %>
-</p>
-<p class='address'>
-  <%= city_state_zip %>
-</p>
+<%= render partial: 'address', locals: { addressable: @organization } %>
 
 <p class='phone'>
   <%= @organization.phone_number %>
