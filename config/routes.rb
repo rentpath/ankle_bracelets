@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   resources :organizations, only: [:index, :show]
   resources :my_organizations, path: '/my/organizations'
-  resources :events
+  resources :events do
+    member do
+      post 'volunteer'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

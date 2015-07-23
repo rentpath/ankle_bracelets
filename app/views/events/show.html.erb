@@ -45,5 +45,23 @@
   <%= @event.organization %>
 </p>
 
+<div>
+  <h2>Volunteers</h2>
+
+  <% if @event.volunteers.any? %>
+    <ul>
+      <% @event.volunteers.each do |volunteer| %>
+        <li>
+          <%= volunteer.first_name %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    There are currently no volunteers. Be the first!
+  <% end %>
+
+  <%= button_to 'Volunteer', action: :volunteer, method: :post %>
+</div>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
