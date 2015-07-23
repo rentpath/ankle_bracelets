@@ -32,6 +32,9 @@
 <% end -%>
 
 
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
 
 <p class="custom notice"><%= notice %></p>
 <p class="custom alert"><%= alert %></p>
