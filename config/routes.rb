@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :organizations, only: [:index, :show]
   resources :events, only: [:index, :show]
   resources :my_organizations, path: '/my/organizations' do
-    resources :my_organization_events, path: '/events'
+    resources :my_organization_events, path: '/events' do
+      resources :shifts
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

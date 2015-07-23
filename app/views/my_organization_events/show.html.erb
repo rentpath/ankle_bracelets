@@ -1,1 +1,33 @@
-<%= @event.name %>
+<h1>
+  <%= @event.name %>
+</h1>
+
+<div>
+  <h2>Shifts</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Start
+        </th>
+        <th>
+          End
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @event.shifts.each do |shift| %>
+      <tr>
+        <td><%= shift.title %></td>
+        <td><%= shift.start_time %></td>
+        <td><%= shift.end_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to 'New Shift', new_my_organization_my_organization_event_shift_path(@organization, @event) %>
