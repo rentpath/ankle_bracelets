@@ -1,35 +1,15 @@
 <p>
-  <strong>Name:</strong>
-  <%= @organization.name %>
+  <h1><%= @organization.name %></h1>
 </p>
 
-<p>
-  <strong>Address1:</strong>
-  <%= @organization.address1 %>
+<p class='address'>
+  <%= full_address %>
+</p>
+<p class='address'>
+  <%= city_state_zip %>
 </p>
 
-<p>
-  <strong>Address2:</strong>
-  <%= @organization.address2 %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @organization.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @organization.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @organization.zip %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
+<p class='phone'>
   <%= @organization.phone_number %>
 </p>
 
