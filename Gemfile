@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 # core
 gem 'rails', '4.2.3'
 gem 'pg'
@@ -18,6 +20,7 @@ gem 'puma'
 
 # plugins
 gem 'devise', '~> 3.2'
+gem 'twilio-ruby', '~> 4.2'
 
 group :production do
   gem 'rails_12factor', group: :production
