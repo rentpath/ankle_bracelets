@@ -1,4 +1,5 @@
 class ShiftsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_organization
   before_action :set_event
   def index; end
@@ -16,9 +17,10 @@ class ShiftsController < ApplicationController
       render :new
     end
   end
+
   private
   def set_organization
-    @organization = Organization.find(params[:my_organization_id])
+    @organization = current_user.organizations.find(params[:my_organization_id])
   end
 
   def set_event

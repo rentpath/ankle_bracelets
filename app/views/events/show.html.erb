@@ -44,19 +44,33 @@
 </p>
 
 <div>
-  <h2>Volunteers</h2>
-
-  <% if @event.volunteers.any? %>
-    <ul>
-      <% @event.volunteers.each do |volunteer| %>
-        <li>
-          <%= volunteer.first_name %>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    There are currently no volunteers. Be the first!
-  <% end %>
+  <h2>Shifts</h2>
+  <table>
+    
+    <% @event.shifts.each do |shift| %>
+      <tr>
+        <td>
+          <%= shift.title %>
+        </td>
+        <td>
+          <%= shift.start_time %>
+        </td>
+        <td>
+          <%= shift.end_time %>
+        </td>
+        <td>
+          <%= shift.users.count %> / <%= shift.slots %>
+        </td>
+        <td>
+          <% if current_user.shifts.include? shift %>
+            <%= button_to 'Leave', volunteers_event_path(@event, shift_id: shift.id), method: :delete %>
+          <% else %>
+            <%= button_to 'Volunteer', volunteers_event_path(@event, shift_id: shift.id), method: :post %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <%= link_to 'Back', events_path %>

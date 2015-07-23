@@ -1,5 +1,5 @@
 class MyOrganizationEventsController < ApplicationController
-  before_action :authenticate_user!, only: :volunteer
+  before_action :authenticate_user!
   before_action :set_organization
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 

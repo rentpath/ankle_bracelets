@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :organizations, only: [:index, :show]
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    member do
+      post :volunteers, to: 'volunteers#create'
+      delete :volunteers, to: 'volunteers#destroy'
+    end
+  end
   resources :my_organizations, path: '/my/organizations' do
     resources :my_organization_events, path: '/events' do
       resources :shifts
