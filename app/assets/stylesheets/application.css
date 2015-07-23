@@ -32,7 +32,13 @@ iframe.modal-iframe {
   height: 380px;
 }
 
-a:link, a:link {}
+a:link, 
+a:visited,
+a:hover,
+a:active {
+  color: blue;
+  background-color: transparent;
+}
 
 nav {
   text-align: right;  
@@ -108,4 +114,13 @@ button {
 .custom.alert {
   color: red;
   font-weight: bold;
+}
+
+.show-bg > .page-container {
+  width: 60%;
+  background-color: #fff;
+  border: 2px solid #999;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 auto;
 }

@@ -3,6 +3,11 @@
     <button type="button" class="log-in-btn" data-toggle="modal" data-target="#login-modal">Log In</button>
   <% end %>
 
+  <%
+   no_iframe = controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'
+  %>
+
+  <% if no_iframe %>
   <div id="login-modal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -28,6 +33,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
 
 

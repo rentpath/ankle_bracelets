@@ -12,13 +12,14 @@
 %>
 
 <% if no_iframe %>
-  <body class="show-bg">
+  <body class="show-bg page-<%=controller_name=%>">
 <% else %>
   <body>
 <% end %>
 
 <%- if no_iframe %>
   <nav>
+    <a href="/">Home</a>
     <%= link_to 'View All Organizations', organizations_path %>
     <% if user_signed_in? %>
       <%= link_to current_user.email, my_organizations_path %>
@@ -36,10 +37,13 @@
   <%= content_tag :div, msg, class: "alert alert-info" %>
 <% end %>
 
-<p class="custom notice"><%= notice %></p>
-<p class="custom alert"><%= alert %></p>
+  <p class="custom notice"><%= notice %></p>
+  <p class="custom alert"><%= alert %></p>
 
-<%= yield %>
+
+<div class="<% if controller_name != 'home' %>page-container<% end %>">
+  <%= yield %>
+</div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

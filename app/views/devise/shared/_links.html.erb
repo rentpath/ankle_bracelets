@@ -11,8 +11,8 @@
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <p class="small-text">
-    Forgot your username and/or password? No worries, we've got you covered, 
-    <%= link_to "just click here for a friendly reminder.", new_password_path(resource_name) %>
+    Forgot your username and/or password? No worries, we can
+    <%= link_to "send you a reminder.", new_password_path(resource_name) %>
   </p>
 <% end -%>
 
