@@ -8,19 +8,6 @@
   <table>
     <thead>
       <tr>
-<<<<<<< Updated upstream
-        <td><%= organization.name %></td>
-        <td><%= organization.address1 %></td>
-        <td><%= organization.address2 %></td>
-        <td><%= organization.city %></td>
-        <td><%= organization.state %></td>
-        <td><%= organization.zip %></td>
-        <td><%= organization.phone_number %></td>
-        <td><%= organization.email_address %></td>
-        <td><%= link_to 'Show', my_organization_path(organization) %></td>
-        <td><%= link_to 'Edit', edit_my_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', my_organization_path(organization), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-=======
         <th>Name</th>
         <th>Address1</th>
         <th>Address2</th>
@@ -29,7 +16,6 @@
         <th>Zip</th>
         <th>Phone number</th>
         <th colspan="3"></th>
->>>>>>> Stashed changes
       </tr>
     </thead>
 
@@ -43,6 +29,7 @@
           <td><%= organization.state %></td>
           <td><%= organization.zip %></td>
           <td><%= organization.phone_number %></td>
+          <td><%= organization.email_address %></td>
           <td><%= link_to 'Show', my_organization_path(organization) %></td>
           <td><%= link_to 'Edit', edit_my_organization_path(organization) %></td>
           <td><%= link_to 'Destroy', my_organization_path(organization), method: :delete, data: { confirm: 'Are you sure?' } %></td>
