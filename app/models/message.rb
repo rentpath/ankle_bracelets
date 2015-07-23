@@ -19,7 +19,7 @@ class Message
       # TODO: ACCEPTing a shift that's sent to you
     end
 
-    user # TODO: not sure what to return
+    true # TODO: not sure what to return
   end
 
   def self.send(to, body)
