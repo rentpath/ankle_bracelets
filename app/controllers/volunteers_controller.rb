@@ -5,12 +5,12 @@ class VolunteersController < ApplicationController
 
   def create
     @shift.users << current_user unless @shift.users.include? current_user
-    redirect_to event_path(@event, notice: 'Thank you for signing up!')
+    redirect_to event_path(@event), notice: 'Thank you for signing up!'
   end
 
   def destroy
     @shift.users.delete current_user
-    redirect_to event_path(@event, notice: 'Ok, thanks for letting us know.')
+    redirect_to event_path(@event), notice: 'Ok, thanks for letting us know.'
   end
 
   private
