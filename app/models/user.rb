@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :organizations, foreign_key: :owner_id
+  has_and_belongs_to_many :events
 end
