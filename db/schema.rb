@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723025447) do
+ActiveRecord::Schema.define(version: 20150723144951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20150723025447) do
 
   add_index "organizations", ["owner_id"], name: "index_organizations_on_owner_id", using: :btree
 
+  create_table "shifts", force: :cascade do |t|
+    t.string   "title",                  null: false
+    t.integer  "slots",      default: 0, null: false
+    t.datetime "start_time",             null: false
+    t.datetime "end_time",               null: false
+    t.integer  "event_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "shifts", ["event_id"], name: "index_shifts_on_event_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -79,4 +91,5 @@ ActiveRecord::Schema.define(version: 20150723025447) do
 
   add_foreign_key "events", "organizations"
   add_foreign_key "organizations", "users", column: "owner_id"
+  add_foreign_key "shifts", "events"
 end
