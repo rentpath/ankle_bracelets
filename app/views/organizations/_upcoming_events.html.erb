@@ -1,0 +1,14 @@
+<h2>Upcoming Events</h2>
+<% if @organization.events.any? %>
+  <ul>
+    <% @organization.events.each do |event| %>
+      <li>
+        <%= link_to event.name, event %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There are currently no upcoming events.
+  </p>
+<% end %>
