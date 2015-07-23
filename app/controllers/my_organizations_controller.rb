@@ -47,13 +47,14 @@ class MyOrganizationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organization
-      @organization = current_user.organizations.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def organization_params
-      params.require(:organization).permit(:name, :address1, :address2, :city, :state, :zip, :phone_number, :email_address)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_organization
+    @organization = current_user.organizations.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def organization_params
+    params.require(:organization).permit(:name, :address1, :address2, :city, :state, :zip, :phone_number, :email_address)
+  end
 end

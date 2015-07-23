@@ -19,6 +19,7 @@ class ShiftsController < ApplicationController
   end
 
   private
+
   def set_organization
     @organization = current_user.organizations.find(params[:my_organization_id])
   end

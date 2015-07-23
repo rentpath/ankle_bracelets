@@ -37,8 +37,8 @@ class MyOrganizationEventsController < ApplicationController
     redirect_to my_organization_my_organization_event_path(@organization, notice: 'Event was successfully destroyed.')
   end
 
-
   private
+
   def set_organization
     @organization = Organization.find(params[:my_organization_id])
   end

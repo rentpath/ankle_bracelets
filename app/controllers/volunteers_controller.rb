@@ -14,6 +14,7 @@ class VolunteersController < ApplicationController
   end
 
   private
+
   def set_event
     @event = Event.find(params[:id])
   end
