@@ -46,7 +46,6 @@
 <div>
   <h2>Shifts</h2>
   <table>
-    
     <% @event.shifts.each do |shift| %>
       <tr>
         <td>
@@ -62,7 +61,7 @@
           <%= shift.users.count %> / <%= shift.slots %>
         </td>
         <td>
-          <% if current_user.shifts.include? shift %>
+          <% if user_signed_in? && current_user.shifts.include?(shift) %>
             <%= button_to 'Leave', volunteers_event_path(@event, shift_id: shift.id), method: :delete %>
           <% else %>
             <%= button_to 'Volunteer', volunteers_event_path(@event, shift_id: shift.id), method: :post %>
