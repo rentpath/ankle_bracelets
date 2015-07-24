@@ -106,18 +106,6 @@ button {
 }
 .modal-header .btn { float: right; }
 
-.custom.alert, 
-.custom.notice {
-  padding: 0;
-  border: none;
-  margin: 0;
-}
-
-.custom.alert {
-  color: red;
-  font-weight: bold;
-}
-
 .show-bg > .page-container {
   width: 60%;
   background-color: #fff;

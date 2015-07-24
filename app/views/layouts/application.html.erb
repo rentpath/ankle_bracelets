@@ -11,10 +11,29 @@
  no_iframe = controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'
 %>
 
+  <script type="text/javascript">
+    // R'ugly (i.e. really ugly), temporary hack. 
+    // Bust out of iframe if you're inside login modal and you successfully login.
+    // pass messaging out back again through query string
+    // TODO: in desperate need of more elegant solution, mixing Ruby and JS, blech; forcing modal arch on 
+    // current routing arch through an iframe, double blech
+    isLoggedIn = <%= user_signed_in?%>;
+    isHomePage = <%= controller_name == 'home' %>;
+    isIframe = window.self !== window.top;
+    msg = ("<%=flash.notice%>".length) ? "?msg=<%=flash.notice%>" : ""
+
+    if (isLoggedIn && isIframe && isHomePage) {
+      top.location = self.location.href + msg;
+    }
+  </script>
+
 <% if no_iframe %>
-  <body class="show-bg page-<%=controller_name=%>">
+  <body class="show-bg">
 <% else %>
   <body>
+
+
+
 <% end %>
 
 <%- if no_iframe %>
@@ -30,6 +49,11 @@
   </nav>
 <% end -%>
 
+<% 
+if params[:msg]
+  flash.notice = params[:msg]
+end 
+%>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, class: "alert alert-info" %>
@@ -39,31 +63,31 @@
   <%= yield %>
 </div>
 
-<div id="login-modal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title"></div>
-        <button type="button" class="btn btn-default" data-dismiss="modal"> X </button>
-      </div>
-      <div class="modal-body">
-        <div class="col login-images">
-          <%= image_tag("habitat-humanity-250.jpg", class: "img-circle") %>
-          <%= image_tag("red-cross-250.jpg", class: "img-circle") %>
-          <%= image_tag("trash-pick-up-250.jpg", class: "img-circle") %>
+<% if !user_signed_in? && no_iframe %>
+  <div id="login-modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title"></div>
+          <button type="button" class="btn btn-default" data-dismiss="modal"> X </button>
         </div>
-        <div class="col login-form">
-        <% if !user_signed_in? %>
-          <iframe src="<%=new_user_session_path%>" class="modal-iframe"></iframe>
-        <% end %>
+        <div class="modal-body">
+          <div class="col login-images">
+            <%= image_tag("habitat-humanity-250.jpg", class: "img-circle") %>
+            <%= image_tag("red-cross-250.jpg", class: "img-circle") %>
+            <%= image_tag("trash-pick-up-250.jpg", class: "img-circle") %>
+          </div>
+          <div class="col login-form">
+            <iframe src="<%=new_user_session_path%>" class="modal-iframe"></iframe>
+          </div>
         </div>
+        <div class="modal-footer">
+  <!--           <button type="button" class="btn btn-primary">Log In</button>          
+  -->        </div>
       </div>
-      <div class="modal-footer">
-<!--           <button type="button" class="btn btn-primary">Log In</button>          
--->        </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
