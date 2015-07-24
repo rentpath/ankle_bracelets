@@ -21,7 +21,7 @@ body {
 }
 
 body.show-bg {
-  background-image: url('/assets/main-volunteer-bg.jpg'); 
+  background-image: url("main-volunteer-bg.jpg"); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 -110px;

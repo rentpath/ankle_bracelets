@@ -48,9 +48,9 @@
       </div>
       <div class="modal-body">
         <div class="col login-images">
-          <img class="img-circle" src="/assets/habitat-humanity-250.jpg">
-          <img class="img-circle" src="/assets/red-cross-250.jpg">
-          <img class="img-circle" src="/assets/trash-pick-up-250.jpg">          
+          <%= image_tag("habitat-humanity-250.jpg", class: "img-circle") %>
+          <%= image_tag("red-cross-250.jpg", class: "img-circle") %>
+          <%= image_tag("trash-pick-up-250.jpg", class: "img-circle") %>
         </div>
         <div class="col login-form">
         <% if !user_signed_in? %>
