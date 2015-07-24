@@ -87,6 +87,22 @@ button {
   outline: none;
 }
 
+table {
+  width: 100%;
+}
+
+th { 
+  background-color: #999; color: #fff; 
+}
+
+th, td {
+  padding: 6px 10px;
+  margin: 1px;
+  border: 1px solid #ccc;
+  font-weight: normal;
+  text-align: left;
+}
+
 .log-in-btn {
   position: absolute; 
   top: 50%;
